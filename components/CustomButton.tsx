@@ -1,5 +1,6 @@
+'use client'
+
 import { CustomButtonProps } from '@/types'
-import { title } from 'process'
 import React from 'react'
 
 const CustomButton = ({title, handleClick, containerStyles}: CustomButtonProps) => {

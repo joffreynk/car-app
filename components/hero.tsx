@@ -1,3 +1,5 @@
+'use client'
+
 import React from 'react'
 import CustomButton from './CustomButton'
 
@@ -10,7 +12,7 @@ const Hero = () => {
         <p className='hero__subtitle'>Streamline your car rental experience with our effortless process</p>
         <CustomButton
           title='Explore cars'
-          containerStyles='bg-primary-blue text-white rounded-full mt-10'
+          containerStyles='bg-primary-blue text-white p-2 rounded-full mt-10'
           handleClick={handleScroll}
           />
       </div>
