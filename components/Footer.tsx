@@ -16,7 +16,7 @@ const Footer = () => {
           {
             footerLinks.map(link =>(
               <div className='footer__link' key={link.title}> 
-                 <h3 className='font-bold'> {link.title} </h3>
+                 <h3 className='font-bold text-gray-900'> {link.title} </h3>
                  {
                   link.links.map(item =>(
                     <Link
@@ -31,6 +31,14 @@ const Footer = () => {
             ))
           }
         </div>
+      </div>
+
+      <div className='flex justify-between flex-wrap items-center mt-10 border-t border-gray-100 sm:px-16 px-6 py-10'>
+         <p className='text-gray-900'> @2023 carStore. All Rights Reserved </p>
+         <div className='footer__copyrights-link'>
+          <Link href='/' className='text-gray-500 '>Privacy Policy</Link>
+          <Link href='/' className='text-gray-500 '>Terms of Use</Link>
+         </div>
       </div>
       
     </footer>
