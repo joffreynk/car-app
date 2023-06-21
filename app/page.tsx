@@ -7,7 +7,7 @@ export default function Home() {
 
       <div className='mt-12 padding-x padding-y max-width' id='discover' >
         <div className='home__text-container'>
-          <h1 className='text-4xl font-extrabold' >Car stock </h1>
+          <h1 className='text-4xl font-extrabold' >Cars stock </h1>
           <p>Explore Cars you might like</p>
         </div>
 
