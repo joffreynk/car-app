@@ -10,6 +10,8 @@ import React, { Fragment, useState } from 'react'
 const SearchManufacturer = ({manufacturer, setManufacturer}: setManufacturerProps) => {
   const [queryKey, setQueryKey] = useState('')
   const filteredManufacturers = queryKey.length && manufacturers.filter(item => item.toLowerCase().includes(queryKey.toLowerCase()))
+  console.log(filteredManufacturers);
+  
 
   return (
     <div className='search-search-manufacturer'>
@@ -39,8 +41,17 @@ const SearchManufacturer = ({manufacturer, setManufacturer}: setManufacturerProp
           >
             <Combobox.Options>
             {
-              filteredManufacturers.map(item=>())
+              filteredManufacturers.length && filteredManufacturers.map((item)=>(
+                <Combobox.Option
+                key={item}
+                className={({active})=>`relative search-manufacturer_option ${active? 'bg-primary-blue text-white': 'text-gray'}`}
+                value={item}
+                >
+              {item}
+              </Combobox.Option>
+              ))
             }
+
             </Combobox.Options>
           </Transition>
         </div>
