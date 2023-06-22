@@ -9,10 +9,8 @@ import React, { Fragment, useState } from 'react'
 
 const SearchManufacturer = ({manufacturer, setManufacturer}: setManufacturerProps) => {
   const [queryKey, setQueryKey] = useState('')
-  const filteredManufacturers = queryKey.length && manufacturers.filter(item => item.toLowerCase().includes(queryKey.toLowerCase()))
-  console.log(filteredManufacturers);
+  const filteredManufacturers = queryKey.length ? manufacturers.filter(item => item.toLowerCase().includes(queryKey.toLowerCase())): manufacturers
   
-
   return (
     <div className='search-search-manufacturer'>
       <Combobox>
