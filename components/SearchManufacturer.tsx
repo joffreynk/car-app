@@ -3,7 +3,7 @@ import React from 'react'
 
 const SearchManufacturer = ({manufacturer, setManufacturer}: setManufacturerProps) => {
   return (
-    <div>
+    <div className='search-search-manufacturer'>
       
     </div>
   )
