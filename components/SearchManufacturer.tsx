@@ -1,11 +1,16 @@
 'use client'
 
+import { manufacturers } from '@/constatnts'
 import { setManufacturerProps } from '@/types'
-import { Combobox } from '@headlessui/react'
+import { Combobox, Transition } from '@headlessui/react'
 import Image from 'next/image'
-import React from 'react'
+import React, { Fragment, useState } from 'react'
+
 
 const SearchManufacturer = ({manufacturer, setManufacturer}: setManufacturerProps) => {
+  const [queryKey, setQueryKey] = useState('')
+  const filteredManufacturers = queryKey.length && manufacturers.filter(item => item.toLowerCase().includes(queryKey.toLowerCase()))
+
   return (
     <div className='search-search-manufacturer'>
       <Combobox>
@@ -18,6 +23,26 @@ const SearchManufacturer = ({manufacturer, setManufacturer}: setManufacturerProp
             className='ml-4'
             alt='car logo' />
           </Combobox.Button>
+          <Combobox.Input
+          className='search-manufacturer__input'
+          placeholder='Wish'
+          displayValue={(manufacturer: string) =>manufacturer}
+          onChange={(e)=>setQueryKey(e.target.value.trim())}
+          />
+
+          <Transition
+          as={Fragment}
+          leave='transition ease-in duration-100'
+          leaveFrom='opacity-100'
+          leaveTo='opacity-0'
+          afterLeave={()=>setQueryKey('')}
+          >
+            <Combobox.Options>
+            {
+              filteredManufacturers.map(item=>())
+            }
+            </Combobox.Options>
+          </Transition>
         </div>
       </Combobox>
     </div>
