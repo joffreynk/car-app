@@ -1,10 +1,12 @@
 'use client'
 
-import { manufacturers } from '@/constatnts'
-import { setManufacturerProps } from '@/types'
+import { Fragment, useState } from 'react'
 import { Combobox, Transition } from '@headlessui/react'
 import Image from 'next/image'
-import React, { Fragment, useState } from 'react'
+
+
+import { manufacturers } from '@/constatnts'
+import { setManufacturerProps } from '@/types'
 
 
 const SearchManufacturer = ({manufacturer, setManufacturer}: setManufacturerProps) => {
@@ -37,15 +39,26 @@ const SearchManufacturer = ({manufacturer, setManufacturer}: setManufacturerProp
           leaveTo='opacity-0'
           afterLeave={()=>setQueryKey('')}
           >
-            <Combobox.Options>
+            <Combobox.Options className=''>
             {
               filteredManufacturers.length && filteredManufacturers.map((item)=>(
                 <Combobox.Option
                 key={item}
-                className={({active})=>`relative search-manufacturer_option ${active? 'bg-primary-blue text-white': 'text-gray'}`}
+                className={({active})=>` relative search-manufacturer_option ${active? 'bg-primary-blue text-white': 'text-gray'}`}
                 value={item}
                 >
-              {item}
+              {
+                ({selected, active})=>(<>
+                <span className={`block truncate ${selected? 'font-medium': 'font-normal'}`}>
+                  {item}
+                </span>
+                {
+                  selected ? (
+                    <span className={`absolute insert-y-0 left-0 flex items-center pl-3 ${active ? 'text-white': 'text-teal-600'}`}></span>
+                  ):null
+                }
+                </>)
+              }
               </Combobox.Option>
               ))
             }
