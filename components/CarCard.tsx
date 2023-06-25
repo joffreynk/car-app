@@ -1,6 +1,6 @@
 import { CarCardProps } from "@/types"
-import Image from "next/image"
 import CustomButton from "./CustomButton"
+import Image from "next/image"
 import { useState } from "react"
 import { calculateCarRent } from "@/utils"
 
@@ -18,8 +18,8 @@ const CarCard = ({car}: CarCardProps) => {
         {carRent}
         <span className="self-end text-[14px] font-semibold">/day</span>
       </p>
-      <div className="relative w-full my-3 object-contain">
-        <Image src='/public/hero.png' alt="car model" fill priority className="object-contain" />
+      <div className="relative h-40 w-full my-3">
+        <Image src='/hero.png' priority className='object-contain' alt='car image' fill />
       </div>
       <div className="relative flex w-full mt-2">
         <div className="flex group-hover:invisible w-full justify-between text-gray">
