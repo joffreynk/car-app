@@ -26,3 +26,7 @@ export interface CarProps {
   transmission: string;
   year: number;
 }
+
+export interface CarCardProps {
+  car: CarProps;
+}
