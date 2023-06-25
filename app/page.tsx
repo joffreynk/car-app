@@ -1,6 +1,11 @@
-import { CustomFilter, Hero, SearchBar } from '@/components'
+import { CarCard, CustomFilter, Hero, SearchBar } from '@/components'
+import { FetchCars } from '@/utils'
 
-export default function Home() {
+export default async function Home() {
+  const allCars = await FetchCars()
+  const isFetchError = !Array.isArray(allCars) || allCars.length <1 || !allCars
+  console.log(allCars);
+  
   return (
     <main className="overflow-hidden">
       <Hero />
@@ -18,6 +23,21 @@ export default function Home() {
           <CustomFilter title='year' />
         </div>
         </div>
+
+        {
+          !isFetchError ? (
+            <section>
+              {
+                allCars.map((car)=><CarCard car={car}  />)
+              }
+            </section>
+          ) : (
+            <section className='home__error-container'>
+              <h2 className='text-black text-xl font-bold' >Oooops, No results</h2>
+              <p>{allCars?.message}</p>
+            </section>
+          )
+        }
 
       </div>
     </main>

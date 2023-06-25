@@ -1,5 +1,5 @@
-const FetchCars = async () =>{
-  const url = 'https://cars-by-api-ninjas.p.rapidapi.com/v1/cars';
+export const FetchCars = async () =>{
+  const url = 'https://carhs-by-api-ninjas.p.rapidapi.com/v1/cars?model=corolla';
   const options = {
     method: 'GET',
     headers: {
