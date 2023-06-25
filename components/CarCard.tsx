@@ -1,3 +1,5 @@
+'use client'
+
 import { CarCardProps } from "@/types"
 import CustomButton from "./CustomButton"
 import Image from "next/image"
@@ -48,7 +50,7 @@ const CarCard = ({car}: CarCardProps) => {
             </p>
           </div>
         </div>
-        <div className="car-card__btn-cointainer">
+        <div className="car-card__btn-container">
           <CustomButton
             title="View Moree"
             containerStyles="w-full py-[16px] rounded-full bg-primary-blue"

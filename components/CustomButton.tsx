@@ -3,7 +3,7 @@
 import { CustomButtonProps } from '@/types'
 import React from 'react'
 
-const CustomButton = ({title, handleClick, btnType, containerStyles}: CustomButtonProps) => {
+const CustomButton = ({title, handleClick, btnType, containerStyles, textStyles, rightIcon }: CustomButtonProps) => {
   return (
     <button
       disabled={false}
@@ -11,7 +11,7 @@ const CustomButton = ({title, handleClick, btnType, containerStyles}: CustomButt
       className={`custom-btn ${containerStyles}`}
       onClick={handleClick}
     >
-        <span>
+        <span className={`flex-1 ${textStyles}`}>
             {title}
         </span>
     </button>
