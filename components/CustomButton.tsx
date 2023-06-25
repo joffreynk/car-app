@@ -1,6 +1,7 @@
 'use client'
 
 import { CustomButtonProps } from '@/types'
+import Image from 'next/image'
 import React from 'react'
 
 const CustomButton = ({title, handleClick, btnType, containerStyles, textStyles, rightIcon }: CustomButtonProps) => {
@@ -14,6 +15,11 @@ const CustomButton = ({title, handleClick, btnType, containerStyles, textStyles,
         <span className={`flex-1 ${textStyles}`}>
             {title}
         </span>
+        {rightIcon && (
+          <div className='relative w-6 h-6'>
+            <Image src={rightIcon} alt='button right icon' fill className="object-contain" />
+          </div>
+        )}
     </button>
   )
 }
