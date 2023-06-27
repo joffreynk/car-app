@@ -18,6 +18,6 @@ export {
     CustomFilter,
     SearchManufacturer,
     CarCard,
-    CarDetails
+    CarDetails,
 
 }

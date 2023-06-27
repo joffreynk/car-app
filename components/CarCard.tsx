@@ -1,7 +1,7 @@
 'use client'
 
 import { CarCardProps } from "@/types"
-import CustomButton from "./CustomButton"
+import {CustomButton, CarDetails} from "./"
 import Image from "next/image"
 import { useState } from "react"
 import { calculateCarRent } from "@/utils"
@@ -62,7 +62,7 @@ const CarCard = ({car}: CarCardProps) => {
         </div>
       </div>
 
-      <CarDetails />
+      <CarDetails isOpen={isOpen} closeModel={()=>setIsOpen(false)} car = {car} />
     </div>
   )
 }
