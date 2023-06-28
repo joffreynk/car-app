@@ -4,9 +4,8 @@ import { CarDetailsProps } from "@/types"
 import React, {Fragment} from "react"
 import { Transition, Dialog } from "@headlessui/react"
 import Image from "next/image"
-
+ 
 const CarDetails = ({isOpen, closeModel, car}: CarDetailsProps) => {
-  console.log("isOpen", isOpen);
   
   return (
     <>
