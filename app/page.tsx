@@ -25,7 +25,7 @@ export default async function Home() {
 
         {
           !isFetchError ? (
-            <section className=''>
+            <section className='mb-10'>
               {
                 allCars.map((car)=><CarCard car={car}  />)
               }
