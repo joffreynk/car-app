@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from "react";
+import React, { useState } from "react";
 import {SearchManufacturer} from "./";
 import Image from "next/image";
 
@@ -10,7 +10,18 @@ const SearchButton = ({otherClasses}: {otherClasses: string}) => (<button>
 
 
 const SearchBar = () => {
-  const handleSearch = () => {};
+  const handleSearch = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    if(manufacturer === '' && model === '') {
+      return alert('Please fill in the seach bar')
+    }
+  };
+
+  const updateSearchParams = (model:string, manufacturer:string) => {
+
+  }
+
   const [manufacturer, setManufacturer] = useState('')
   const [model, setModel] = useState('')
   return (
