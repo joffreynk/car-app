@@ -46,3 +46,13 @@ export interface searchParamsProps {
   limit: number;
   model: string;
 }
+
+interface OptionsProps {
+  title: string;
+  value: string;
+}
+
+export interface CustomFilterProps {
+  title: string;
+  options: OptionsProps[];
+}

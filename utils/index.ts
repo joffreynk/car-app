@@ -1,7 +1,10 @@
 // import { CarProps, FilterProps } from "@types";
 
-export const FetchCars = async () =>{
-  const url = 'https://carhs-by-api-ninjas.p.rapidapi.com/v1/cars?model=corolla';
+import { searchParamsProps } from "@/types";
+
+export const FetchCars = async (filters: searchParamsProps) =>{
+  const {manufacturer, model, year, fuel, limit} = filters
+  const url = `https://carhs-by-api-ninjas.p.rapidapi.com/v1/cars?model=${model}&year=${year}&fuel_type=${fuel}&limit=${limit}&make=${manufacturer}`;
   const options = {
     method: 'GET',
     headers: {
