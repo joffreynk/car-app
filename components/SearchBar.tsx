@@ -18,6 +18,8 @@ const SearchBar = () => {
     if(manufacturer === '' && model === '') {
       return alert('Please fill in the seach bar')
     }
+
+    updateSearchParams(model.toLocaleLowerCase(), manufacturer.toLocaleLowerCase())
   };
 
   const updateSearchParams = (model:string, manufacturer:string) => {
