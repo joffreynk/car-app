@@ -38,3 +38,11 @@ export interface CarDetailsProps {
   closeModel: ()=>void;
   car: CarProps;
 }
+
+export interface searchParamsProps {
+  manufacturer: string;
+  year: number;
+  fuel: string;
+  limit: number;
+  model: string;
+}
