@@ -1,4 +1,4 @@
-import { CarCard, CustomFilter, Hero, SearchBar } from '@/components'
+import { CarCard, CustomFilter, Hero, SearchBar, ShowMore } from '@/components'
 import { fuels, yearsOfProduction } from '@/constatnts'
 import { FetchCars } from '@/utils'
 
@@ -11,6 +11,9 @@ export default async function Home({searchParams}: any) {
     model: searchParams.model || '',
   })
   const isFetchError = !Array.isArray(allCars) || allCars.length <1 || !allCars
+
+  console.log(searchParams);
+  
 
   return (
     <main className="overflow-hidden">
@@ -39,6 +42,10 @@ export default async function Home({searchParams}: any) {
                   return <CarCard key={key} car={car}  />
                 })
               }
+              <ShowMore
+                pageNumber={(searchParams.limit || 15)} 
+                isNext = {(searchParams.limit || 15) > allCars.length}
+               />
             </section>
           ) : (
             <section className='home__error-container'>
@@ -47,7 +54,6 @@ export default async function Home({searchParams}: any) {
             </section>
           )
         }
-
       </div>
     </main>
   )

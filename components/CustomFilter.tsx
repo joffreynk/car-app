@@ -1,6 +1,7 @@
 'use client'
 
 import { CustomFilterProps } from '@/types'
+import { updateSearchParams } from '@/utils'
 import { Listbox, Transition } from '@headlessui/react'
 import Image from 'next/image'
 import { useRouter } from 'next/navigation'
@@ -12,14 +13,16 @@ const CustomFilter = ({title, options}: CustomFilterProps) => {
   const router = useRouter()
 
   const hangleUpdateParams = (e:{title:string, value: string})=>{
-    const newPathName = '';
-
+    const newPathName = updateSearchParams(title.toLocaleLowerCase(), e.value.toLocaleLowerCase())
     router.push(newPathName)
   }
   
   return (
     <div className='w-fit'>
-       <Listbox value={selected} onChange={(e)=>setSelected(e)}>
+       <Listbox value={selected} onChange={(e)=>{
+        setSelected(e)
+        hangleUpdateParams(e)
+       }}>
         <div className=" relative w-fit z-10">
           <Listbox.Button className="custom-filter__btn">
             <span className="block truncate">{selected.title}</span>
