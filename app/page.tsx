@@ -24,7 +24,7 @@ export default async function Home({searchParams}) {
 
         <div className='home__filters'>
           <SearchBar />
-        <div className='home__filters-container'>
+        <div className='home__filters-container flex gap-3 mb-4'>
           <CustomFilter title='fuel' options={fuels} />
           <CustomFilter title='year' options={yearsOfProduction} />
         </div>
@@ -32,7 +32,7 @@ export default async function Home({searchParams}) {
 
         {
           !isFetchError ? (
-            <section className='mb-10'>
+            <section className='mb-10 grid md:grid-cols-2 lg:grid-cols-3 gap-5'>
               {
                 allCars.map((car)=><CarCard car={car}  />)
               }
