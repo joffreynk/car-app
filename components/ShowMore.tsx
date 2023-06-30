@@ -8,10 +8,10 @@ import { useRouter } from 'next/navigation'
 
 const ShowMore = ({pageNumber, isNext}: ShowMoreProps) => {
     const router = useRouter()
-    const handleNavigation = () => {
-        const newLimit = pageNumber*2
-        const newPathName = updateSearchParams('limit', String(newLimit));
 
+    const handleNavigation = () => {
+        const newLimit = Number(pageNumber) +15
+        const newPathName = updateSearchParams('limit', String(newLimit));
         router.push(newPathName)
     }
     
