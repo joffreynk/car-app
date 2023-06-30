@@ -2,7 +2,7 @@ import { CarCard, CustomFilter, Hero, SearchBar } from '@/components'
 import { fuels, yearsOfProduction } from '@/constatnts'
 import { FetchCars } from '@/utils'
 
-export default async function Home({searchParams}) {
+export default async function Home({searchParams}: any) {
   const allCars = await FetchCars({
     manufacturer: searchParams.manufacturer || '',
     year: searchParams.year || 2022,
@@ -34,7 +34,10 @@ export default async function Home({searchParams}) {
           !isFetchError ? (
             <section className='mb-10 grid md:grid-cols-2 lg:grid-cols-3 gap-5'>
               {
-                allCars.map((car)=><CarCard car={car}  />)
+                allCars.map((car, index)=>{
+                  let key = `${(index+5)*car.year}`
+                  return <CarCard key={key} car={car}  />
+                })
               }
             </section>
           ) : (
