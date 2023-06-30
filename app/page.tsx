@@ -43,7 +43,7 @@ export default async function Home({searchParams}: any) {
                 })
               }
               <ShowMore
-                pageNumber={(searchParams.limit || 15)} 
+                pageNumber={searchParams.limit || 15} 
                 isNext = {(searchParams.limit || 15) > allCars.length}
                />
             </section>
