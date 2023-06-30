@@ -3,12 +3,19 @@
 import { CustomFilterProps } from '@/types'
 import { Listbox, Transition } from '@headlessui/react'
 import Image from 'next/image'
+import { useRouter } from 'next/navigation'
 import React, { Fragment, useState } from 'react'
 
 
 const CustomFilter = ({title, options}: CustomFilterProps) => {
   const [selected, setSelected] = useState(options[0])
-  console.log(selected);
+  const router = useRouter()
+
+  const hangleUpdateParams = (e:{title:string, value: string})=>{
+    const newPathName = '';
+
+    router.push(newPathName)
+  }
   
   return (
     <div className='w-fit'>
