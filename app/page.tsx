@@ -11,10 +11,7 @@ export default async function Home({searchParams}: any) {
     model: searchParams.model || '',
   })
   const isFetchError = !Array.isArray(allCars) || allCars.length <1 || !allCars
-
-  console.log(searchParams);
   
-
   return (
     <main className="overflow-hidden">
       <Hero />
@@ -35,7 +32,7 @@ export default async function Home({searchParams}: any) {
 
         {
           !isFetchError ? (
-            <section className='mb-10 grid md:grid-cols-2 lg:grid-cols-3 gap-5'>
+            <section className='mb-10 grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5'>
               {
                 allCars.map((car, index)=>{
                   let key = `${(index+5)*car.year}`
