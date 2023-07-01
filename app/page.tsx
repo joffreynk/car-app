@@ -1,6 +1,6 @@
 import { CarCard, CustomFilter, Hero, SearchBar, ShowMore } from '@/components'
 import { fuels, yearsOfProduction } from '@/constatnts'
-import { FetchCars } from '@/utils'
+import { FetchCars, getcarUrl } from '@/utils'
 
 export default async function Home({searchParams}: any) {
   const allCars = await FetchCars({
@@ -11,6 +11,8 @@ export default async function Home({searchParams}: any) {
     model: searchParams.model || '',
   })
   const isFetchError = !Array.isArray(allCars) || allCars.length <1 || !allCars
+
+  // getcarUrl()
   
   return (
     <main className="overflow-hidden">

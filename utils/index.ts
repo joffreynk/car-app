@@ -85,3 +85,34 @@ export const updateSearchParams = (type: string, value: string) => {
 
 //   return `${url}`;
 // } 
+
+
+
+export const getcarUrl = () => {
+
+  const apiKey = 'Basic MGY4ZmNhNTQtNmU1ZC00ZjcyLWI4OWMtN2Y4ZGMwMGVkODRl';
+  const vin = '12345678901234567'; // Replace with a valid VIN
+  
+  const url = `https://api.carmd.com/v3.0/image?year=2015&model=EQUINOX&make=CHEVROLET`;
+
+
+  
+  fetch(url, {
+    headers: {
+      'Content-Type': 'application/json',
+      'authorization': `${apiKey}`,
+      "partner-token":"4b1353287d3141efb90718c503dce3a6"
+
+    }
+  })
+    .then(response => response.json())
+    .then(data => {
+      // Handle the API response here
+      console.log(data);
+    })
+    .catch(error => {
+      console.error('Error:', error);
+    });
+  
+
+}
